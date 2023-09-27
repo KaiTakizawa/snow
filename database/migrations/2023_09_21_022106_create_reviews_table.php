@@ -13,11 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('reviews_tables', function (Blueprint $table) {
+        Schema::create('reviews', function (Blueprint $table) {
             $table->id();
-            $table->user_id();
-            $table->area_id();
-            $table->string('comment', 800);
+            $table->integer('user_id');
+            $table->integer('area_id');
+            $table->text('comment', 800);
             $table->timestamps();
             $table->softDeletes();
         });
@@ -30,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('reviews_tables');
+        Schema::dropIfExists('reviews');
     }
 };

@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('areas', function (Blueprint $table) {
             $table->id();
             $table->string('name', 30);
-            $table->string('detail', 500);
+            $table->text('detail', 500);
             $table->string('address', 100);
             $table->string('access', 100);
         });
