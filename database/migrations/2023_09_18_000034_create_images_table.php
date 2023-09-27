@@ -14,8 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::create('images', function (Blueprint $table) {
-            $table->area_id();
-            $table->string('img_url', 2000);
+            $table->integer('area_id');
+            $table->longText('img_url', 2000);
         });
     }
 

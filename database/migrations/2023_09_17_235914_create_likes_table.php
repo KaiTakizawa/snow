@@ -14,8 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::create('likes', function (Blueprint $table) {
-            $table->use_id();
-            $table->area_id();
+            $table->integer('use_id');
+            $table->integer('area_id');
         });
     }
 
