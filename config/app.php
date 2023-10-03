@@ -194,6 +194,10 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        
+        
+        // Cloudinary追加
+        CloudinaryLabs\CloudinaryLaravel\CloudinaryServiceProvider::class, //この行を追加
 
     ],
 
