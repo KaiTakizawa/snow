@@ -18,7 +18,9 @@
                     <h1 class='name'>
                         {{$area->name}}
                     </h1>
-                    
+                    <div>
+                        <img src="{{ $area->image_url }}" alt="画像が読み込めません。"/>
+                    </div>
                     <div>
                         <p class='detail'>{{ $area->detail }}</p>
                         <p class='address'>{{ $area->address }}</p>

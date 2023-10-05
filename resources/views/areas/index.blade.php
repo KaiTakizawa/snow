@@ -18,12 +18,15 @@
             <div class='areas'>
                 @foreach ($areas as $area)
                     <div class='area'>
-                        <h2 class='name'>
+                        <h1 class='name'>
                             <a href="/areas/{{$area->id}}">{{ $area->name }}</a>
-                        </h2>
-                        <p class='detail'>{{ $area->detail }}</p>
-                        <p class='address'>{{ $area->address }}</p>
-                        <p class='access'>{{ $area->access }}</p>
+                        </h1>
+                        <div>
+                            <img src="{{ $area->image_url }}" alt="画像が読み込めません。"/>
+                            <p class='detail'>{{ $area->detail }}</p>
+                            <p class='address'>{{ $area->address }}</p>
+                            <p class='access'>{{ $area->access }}</p>
+                        </div>
                         
                         <form action="/areas/{{ $area->id }}" id="form_{{ $area->id }}" method="post">
                             @csrf
