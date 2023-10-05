@@ -36,5 +36,6 @@ class Area extends Model
     'detail',
     'address',
     'access',
+    'image_url', 
     ];
 }
