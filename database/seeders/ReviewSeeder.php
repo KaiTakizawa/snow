@@ -19,7 +19,10 @@ class ReviewSeeder extends Seeder
                  DB::table('reviews')->insert([
                 'user_id' => 1,
                 'area_id' => 1,
-                'comment' => '-------------------------',
+                'snow'=> 3,
+                'biginner' => 4,
+                'all' => 4,
+                'comment' => 'とても良い',
                 'created_at' => new DateTime(),
                 'updated_at' => new DateTime(),
          ]);

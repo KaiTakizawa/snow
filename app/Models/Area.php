@@ -5,15 +5,24 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use app\Models\Review;
-use app\Models\Like;
-use app\Models\Image;
-
+use App\Models\Review;
+use App\Models\Like;
+use App\Models\Image;
+use App\Models\Location;
 
 class Area extends Model
 {
+    
     use HasFactory;
-    use SoftDeletes;
+    
+    protected $fillable = [
+        'name',
+        'detail',
+        'address',
+        'access',
+        'image_url', 
+    ];
+        
     
     
     public function reviews()
@@ -28,14 +37,16 @@ class Area extends Model
     
     public function images()
     {
-        return $this->hasMany(Images::class);
+        return $this->hasMany(Image::class);
+        
     }
     
-    protected $fillable = [
-    'name',
-    'detail',
-    'address',
-    'access',
-    'image_url', 
-    ];
+     public function location()
+    {
+        return $this->hasOne(Location::class);
+        
+    }
+    
+    
+  
 }

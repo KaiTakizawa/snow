@@ -33,9 +33,13 @@
                     <h2>access</h2>
                     <input type="text" name="area[access]" placeholder="アクセス"></textarea>
                 </div>
-                
-                <div class="image">
+                ゲレンデマップ
+                <div class="area_map">
                     <input type="file" name="image">
+                </div>
+                スキー場写真
+                <div class="images">
+                    <input type="file" name="images[]" multiple/>
                 </div>
                 
                 <input type="submit" value="保存"/>
