@@ -19,6 +19,8 @@ return new class extends Migration
             $table->text('detail', 500);
             $table->string('address', 100);
             $table->string('access', 100);
+            $table->string('snowmap_url')->nullable();
+            $table->timestamps();
         });
     }
 

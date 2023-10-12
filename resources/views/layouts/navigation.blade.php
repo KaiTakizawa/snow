@@ -18,6 +18,9 @@
                     <x-nav-link :href="route('area')" :active="request()->routeIs('area')">
                          {{ __('Areas') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('review')" :active="request()->routeIs('review')">
+                         {{ __('Reviews') }}
+                    </x-nav-link>
                     
                 </div>
             </div>

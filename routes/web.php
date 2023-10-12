@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AreaController;
+use App\Http\Controllers\ReviewController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,13 +32,17 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     
     Route::get('/', [AreaController::class, 'area'])->name('area');
+    Route::get('/reviews', [ReviewController::class, 'review'])->name('review');
     
     Route::get('/areas/create', [AreaController::class, 'create'])->name('areas.create');
     Route::post('/areas', [AreaController::class, 'store'])->name('areas.store');
-    
     Route::get('/areas/{area}', [AreaController::class ,'show']);
-    
     Route::delete('/areas/{area}', [AreaController::class,'delete']);
+    
+    Route::post('/reviews', [ReviewController::class, 'storeReview']);
+    
+    
+    
 });
 
 require __DIR__.'/auth.php';

@@ -13,7 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('areas', function (Blueprint $table) {
+        Schema::create('locations', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('area_id')->constrained();
+            $table->double('latitude', 10, 6); // 10は合計桁数、6は小数部桁数
+            $table->double('longitude', 10, 6);
+            $table->string('area_name', 30); 
+            $table->string('area_address', 100);
             $table->timestamps();
         });
     }
@@ -25,8 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('areas', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('locations');
     }
 };

@@ -15,8 +15,11 @@ return new class extends Migration
     {
         Schema::create('reviews', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id');
-            $table->integer('area_id');
+            $table->foreignId('user_id')->constrained();
+            $table->foreignId('area_id')->constrained();
+            $table->integer('snow');
+            $table->integer('biginner');
+            $table->integer('all');
             $table->text('comment', 800);
             $table->timestamps();
             $table->softDeletes();

@@ -6,10 +6,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Area;
 
-class Image extends Model
+class Location extends Model
 {
     use HasFactory;
-    protected $fillable = ['img_url', 'area_id']; 
+    protected $table="locations";
+    
     
     public function area()
     {
