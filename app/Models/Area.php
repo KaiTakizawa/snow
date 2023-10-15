@@ -20,8 +20,9 @@ class Area extends Model
         'detail',
         'address',
         'access',
-        'image_url', 
+        'snowmap_url', 
     ];
+    
         
     
     
@@ -38,13 +39,20 @@ class Area extends Model
     public function images()
     {
         return $this->hasMany(Image::class);
+    }
+    
+    public function getFirstImages()
+    {
+
+        return $this->images->first();    
+        
         
     }
+    
     
      public function location()
     {
         return $this->hasOne(Location::class);
-        
     }
     
     

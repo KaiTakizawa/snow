@@ -24,9 +24,12 @@ class Review extends Model
     }
     
      protected $fillable = [
-    'snow-ev',
+    'user_id',
+    'area_id',
+    'snow',
     'biginner',
     'all',
+    'comment',
     ]; 
     
     

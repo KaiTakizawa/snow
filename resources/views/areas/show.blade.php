@@ -25,7 +25,7 @@
                         {{$area->name}}
                     </h1>
                     <div>
-                        <img src="{{ $area->image_url }}" alt="画像が読み込めません。"/>
+                        <img src="{{ $area->snowmap_url }}" alt="画像が読み込めません。"/>
                     </div>
                     <div>
                         <p class='detail'>{{ $area->detail }}</p>
@@ -53,30 +53,30 @@
                     <label class="review">{{$area->name}}</label>
                 </div>
                 
-                <form action="/reviews" method="POST" enctype="multipart/form-data">
+                <form action="/reviews/{{$area->id}}" method="POST" enctype="multipart/form-data">
                 @csrf
                 
                 <div class="snow-ev ">
                     <label class="snow-ev pl-5">雪質</label>
                     <div class="ratebutton text-center">
                         <div class="md-radio md-radio-inline d-inline">
-                            <input type="radio" name="review_snow_quality" value="1">
+                            <input type="radio" name="review[snow]" value="1">
                             <label for="1">1</label>
                         </div>
                         <div class="md-radio md-radio-inline d-inline">
-                            <input type="radio" name="review_snow_quality" value="2">
+                            <input type="radio" name="review[snow]" value="2">
                             <label for="2">2</label>
                         </div>
                         <div class="md-radio md-radio-inline d-inline">
-                            <input type="radio" name="review_snow_quality" value="3" checked>
+                            <input type="radio" name="review[snow]" value="3" checked>
                             <label for="3">3</label>
                         </div>
                         <div class="md-radio md-radio-inline d-inline">
-                            <input type="radio" name="review_snow_quality" value="4">
+                            <input type="radio" name="review[snow]" value="4">
                             <label for="4">4</label>
                         </div>
                         <div class="md-radio md-radio-inline d-inline">
-                            <input type="radio" name="review_snow_quality" value="5">
+                            <input type="radio" name="review[snow]" value="5">
                             <label for="5">5</label>
                         </div>
                     </div>
@@ -86,23 +86,23 @@
                     <label class="snow-ev pl-5">初級者おすすめ度</label>
                     <div class="ratebutton text-center">
                         <div class="md-radio md-radio-inline d-inline">
-                            <input type="radio" name="review_biginner_recommendation" value="1">
+                            <input type="radio" name="review[biginner]" value="1">
                             <label for="1">1</label>
                         </div>
                         <div class="md-radio md-radio-inline d-inline">
-                            <input type="radio" name="review_biginner_recommendation" value="2">
+                            <input type="radio" name="review[biginner]" value="2">
                             <label for="2">2</label>
                         </div>
                         <div class="md-radio md-radio-inline d-inline">
-                            <input type="radio" name="review_biginner_recommendation" value="3" checked>
+                            <input type="radio" name="review[biginner]" value="3" checked>
                             <label for="3">3</label>
                         </div>
                         <div class="md-radio md-radio-inline d-inline">
-                            <input type="radio" name="review_biginner_recommendation" value="4">
+                            <input type="radio" name="review[biginner]" value="4">
                             <label for="4">4</label>
                         </div>
                         <div class="md-radio md-radio-inline d-inline">
-                            <input type="radio" name="review_biginner_recommendation" value="5">
+                            <input type="radio" name="review[biginner]" value="5">
                             <label for="5">5</label>
                         </div>
                     </div>
@@ -114,23 +114,23 @@
                     <label class="snow-ev pl-5">総合評価</label>
                     <div class="ratebutton text-center">
                         <div class="md-radio md-radio-inline d-inline">
-                            <input type="radio" name="review_all_evaluation" value="1">
+                            <input type="radio" name="review[all]" value="1">
                             <label for="1">1</label>
                         </div>
                         <div class="md-radio md-radio-inline d-inline">
-                            <input type="radio" name="review_all_evaluation" value="2">
+                            <input type="radio" name="review[all]" value="2">
                             <label for="2">2</label>
                         </div>
                         <div class="md-radio md-radio-inline d-inline">
-                            <input type="radio" name="review_all_evaluation" value="3" checked>
+                            <input type="radio" name="review[all]" value="3" checked>
                             <label for="3">3</label>
                         </div>
                         <div class="md-radio md-radio-inline d-inline">
-                            <input type="radio" name="review_all_evaluation" value="4">
+                            <input type="radio" name="review[all]" value="4">
                             <label for="4">4</label>
                         </div>
                         <div class="md-radio md-radio-inline d-inline">
-                            <input type="radio" name="review_all_evaluation" value="5">
+                            <input type="radio" name="review[all]" value="5">
                             <label for="5">5</label>
                         </div>
                     </div>
@@ -138,7 +138,7 @@
                 
                 <div class="form-group">
                     <label></label>
-                    <textarea name="content" required class="form-control wf-mplus1p" rows="4" placeholder="コメント">{{ old('body') }}</textarea>
+                    <textarea name="review[comment]" required class="form-control wf-mplus1p" rows="4" placeholder="コメント">{{ old('body') }}</textarea>
                 </div>
                 
                 

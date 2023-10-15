@@ -5,7 +5,7 @@
         <title>Snow</title>
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-        <link href="{{ asset('/css/app.css') }}"  rel="stylesheet">
+        <link href="{{ asset('/css/area.css') }}"  rel="stylesheet">
        
     </head>
     
@@ -21,11 +21,15 @@
                         <h1 class='name'>
                             <a href="/areas/{{$area->id}}">{{ $area->name }}</a>
                         </h1>
-                        <div>
-                            <img src="{{ $area->image_url }}" alt="画像が読み込めません。"/>
-                            <p class='detail'>{{ $area->detail }}</p>
-                            <p class='address'>{{ $area->address }}</p>
-                            <p class='access'>{{ $area->access }}</p>
+                        <div class="wrapper">
+                            <div class="grid-item">
+                                <img src="{{ $area->getFirstImages()->img_url }}" alt="画像が読み込めません。"/>
+                                <div>
+                                <p class='detail'>{{ $area->detail }}</p>
+                                <p class='address'>{{ $area->address }}</p>
+                                <p class='access'>{{ $area->access }}</p>
+                                </div>
+                            </div>    
                         </div>
                         
                         <form action="/areas/{{ $area->id }}" id="form_{{ $area->id }}" method="post">
@@ -36,7 +40,6 @@
                       
                     </div>
                 @endforeach
-                </div>
             </div>
             
             <a href='/areas/create'>create</a>

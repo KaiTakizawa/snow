@@ -35,7 +35,7 @@
                 </div>
                 ゲレンデマップ
                 <div class="area_map">
-                    <input type="file" name="image">
+                    <input type="file" name="image"/>
                 </div>
                 スキー場写真
                 <div class="images">
