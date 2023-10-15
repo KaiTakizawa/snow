@@ -5,7 +5,7 @@
         <title>Snow</title>
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-        <link href="{{ asset('/css/app.css') }}"  rel="stylesheet">
+        <link href="{{ asset('/css/review.css') }}"  rel="stylesheet">
        
     </head>
     
@@ -14,19 +14,36 @@
             　Reviews
         </x-slot>
          <body>
-            @foreach ($reviews as $review)
-                    <div class='review'>
-                        <h1 class='area_name'>
-                            {{$review->area->name}}
-                        </h1>
-                        <div>
-                            <p class='evaluation-1'>雪質{{ $review->snow}}</p>
-                            <p class='evaluation-2'>初心者おすすめ度{{ $review->biginner}}</p>
-                            <p class='evaluation-3'>総合評価{{ $review->all }}</p>
-                            <p class='evaluation-4'>コメント:{{ $review->comment }}</p>
+            <div class="reviews-container">
+                @foreach ($reviews as $review)
+                        <div class='review'>
+                            <h1 class='area_name'>{{$review->area->name}}</h1>
+                            <div>
+                                <p class='name'>名前{{ $review->user->name}}</p>
+                                @php
+                                    $ratings = [
+                                        '雪質' => $review->snow,
+                                        '初心者おすすめ度' => $review->biginner,
+                                        '総合評価' => $review->all,
+                                    ];
+                                @endphp
+                    
+                                @foreach ($ratings as $label => $rating)
+                                    <p class='evaluation'>
+                                        {{ $label }}{{ $rating }}
+                                        @for ($i = 1; $i <= 5; $i++)
+                                            @if ($i <= $rating)
+                                                ⭐️
+                                            @endif
+                                        @endfor
+                                    </p>
+                                @endforeach
+        
+                                 <p class='evaluation-5'>コメント:{{ $review->comment }}</p>
+                            </div>
                         </div>
-                    </div>
                 @endforeach
+            </div>
             
             
             

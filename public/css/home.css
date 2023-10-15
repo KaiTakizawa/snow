@@ -1,0 +1,112 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+html {
+  font-size: 100%;
+}
+body {
+    color: #24292e;
+    letter-spacing: 0.05em;
+}
+a,a:visited {
+    color: #24292e;
+    text-decoration: none;
+}
+img {
+    max-width: 100%;
+}
+li {
+    list-style: none;
+}
+p {
+    line-height: 1.8;
+    font-size: 14px;
+}
+h1 {
+    font-size: 60px;
+    font-family: 'Noto Sans';
+}
+h2 {
+    font-size: 1.5rem;
+    text-align: center;
+    margin-bottom: 65px;
+}
+h3 {
+    font-size: 16px;
+}
+
+
+
+
+/*-------------------------------------------
+メインビジュアル
+-------------------------------------------*/
+
+.main-visual{     
+    width: 100%;
+    height: 550px;
+    background-image: url(../img/main.jpg);
+    background-size: cover;
+	color: #FFF;
+	text-align: center;
+	display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-visual p {
+    margin-top: 20px;
+    font-size: 18px;
+}
+
+
+/*-------------------------------------------
+Skills
+-------------------------------------------*/
+
+#areas {
+    background-color: #f5f5f5;
+}
+
+#areas h3 {
+    margin-bottom: 10px;
+}
+
+.area-list {
+    display: flex;
+    justify-content: space-between;
+	flex-wrap: wrap;
+}
+
+.area-item {
+    width: 50%;
+    background-color: #fff;
+    border-radius: 16px;
+    margin-bottom: 20px;
+    padding: 30px;
+    box-sizing: border-box;
+}
+
+
+/*-------------------------------------------
+Contact
+-------------------------------------------*/
+#contact {
+    background-color: #CCFFFF;
+    text-align: center;
+}
+
+
+/*-------------------------------------------
+フッター
+-------------------------------------------*/
+
+footer {
+    background-color: #24292e;
+    color: #fff;
+    font-size: 0.5rem;
+    padding: 10px 20px;
+    text-align: center;
+}

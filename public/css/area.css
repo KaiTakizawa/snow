@@ -1,0 +1,29 @@
+@charset "UTF-8";
+.wrapper {
+  display: flex;
+  align-items: center;
+  gap: 20px; /* 画像とテキスト間のスペース（任意の値を指定） */
+  border: 2px solid black; /* グリッドを太線で囲む */
+  padding: 10px; /* グリッドの内部の余白を追加（任意の値を指定） */
+}
+
+.grid-item {
+  display: flex; /* 画像とテキストを横並びに配置 */
+  align-items: center;
+}
+
+.grid-item img {
+  flex: 1; /* 画像の幅がテキストの3倍になる */
+  max-width: 25%; /* 画像の最大幅を制限 */
+  object-fit: cover; /* 画像を親要素に合わせて拡大/縮小 */
+}
+
+.text-content {
+  flex: 3; /* テキストの幅が画像の1/3になる */
+}
+
+.text-content p {
+  margin: 0; /* デフォルトのマージンを削除 */
+  word-wrap: break-word; /* 長いテキストを適切に折り返す */
+}
+

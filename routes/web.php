@@ -39,7 +39,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/areas/{area}', [AreaController::class ,'show']);
     Route::delete('/areas/{area}', [AreaController::class,'delete']);
     
-    Route::post('/reviews', [ReviewController::class, 'storeReview']);
+    Route::post('/reviews/{area}', [ReviewController::class, 'storeReview']);
     
     
     
