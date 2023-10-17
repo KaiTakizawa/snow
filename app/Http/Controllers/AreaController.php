@@ -59,4 +59,22 @@ class AreaController extends Controller
         $area->delete();
         return redirect('/');
     }
+    
+    
+    public function search(Request $request)
+    {
+        $areas = Area::query();
+        
+        $keyword = $request->input('keyword');
+        if (!empty($keyword)) {
+            $areas->where('name', 'LIKE', "%{$keyword}%")
+                ->orWhere('detail', 'LIKE', "%{$keyword}%")
+                ->orWhere('address', 'LIKE', "%{$keyword}%")
+                ->orWhere('access', 'LIKE', "%{$keyword}%");
+        }
+        $results = $areas->get();
+        return view('areas.search')->with(['results' => $results]);
+    }
+    
+    
 }

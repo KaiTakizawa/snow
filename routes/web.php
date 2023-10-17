@@ -36,10 +36,13 @@ Route::middleware('auth')->group(function () {
     
     Route::get('/areas/create', [AreaController::class, 'create'])->name('areas.create');
     Route::post('/areas', [AreaController::class, 'store'])->name('areas.store');
-    Route::get('/areas/{area}', [AreaController::class ,'show']);
+    Route::get('/areas/{area}', [AreaController::class, 'show']);
     Route::delete('/areas/{area}', [AreaController::class,'delete']);
     
     Route::post('/reviews/{area}', [ReviewController::class, 'storeReview']);
+    
+    Route::post('/areas/search', [AreaController::class, 'search']);
+    
     
     
     
