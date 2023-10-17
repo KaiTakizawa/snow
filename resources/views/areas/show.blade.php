@@ -5,7 +5,7 @@
         <title>Snow</title>
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-        <link href="{{ asset('/css/app.css') }}"  rel="stylesheet">
+        <link href="{{ asset('/css/show.css') }}"  rel="stylesheet">
         
         
         
@@ -24,13 +24,15 @@
                     <h1 class='name'>
                         {{$area->name}}
                     </h1>
-                    <div>
-                        <img src="{{ $area->snowmap_url }}" alt="画像が読み込めません。"/>
-                    </div>
-                    <div>
-                        <p class='detail'>{{ $area->detail }}</p>
-                        <p class='address'>{{ $area->address }}</p>
-                        <p class='access'>{{ $area->access }}</p>
+                    <div class="area-info">
+                        <div class="area-image">
+                            <img src="{{ $area->snowmap_url }}" alt="画像が読み込めません." />
+                        </div>
+                        <div class="area-text">
+                            <p class='detail'>{{ $area->detail }}</p>
+                            <p class='address'>{{ $area->address }}</p>
+                            <p class='access'>{{ $area->access }}</p>
+                        </div>
                     </div>
                 </div>
                 

@@ -10,11 +10,22 @@
     </head>
     
     <x-app-layout>
-        <x-slot name="header">
-            　Areas
+       <x-slot name="header">
+            <div class="header-content">
+                <div class="header-title">Areas</div>
+                <form action="/areas/search" method="POST">
+                    @csrf
+                    <div class="search-container">
+                        <input type="text" name="keyword" class="search-input">
+                        <input type="submit" value="検索" class="search-button">
+                    </div>
+                </form>
+            </div>
         </x-slot>
+
         <body>
-            <!--<h1>Area</h1>-->
+           
+
             <div class='areas'>
                 @foreach ($areas as $area)
                     <div class='area'>
