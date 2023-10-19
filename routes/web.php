@@ -32,6 +32,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     
     Route::get('/', [AreaController::class, 'area'])->name('area');
+    Route::post('/areas/search', [AreaController::class, 'search']);
     Route::get('/reviews', [ReviewController::class, 'review'])->name('review');
     
     Route::get('/areas/create', [AreaController::class, 'create'])->name('areas.create');
@@ -41,8 +42,10 @@ Route::middleware('auth')->group(function () {
     
     Route::post('/reviews/{area}', [ReviewController::class, 'storeReview']);
     
-    Route::post('/areas/search', [AreaController::class, 'search']);
-    
+    // Route::get('/like/{area}', [AreaController::class, 'like'])->name('like');
+    // Route::get('/unlike/{area}', [AreaController::class, 'unlike'])->name('unlike');
+
+    Route::post('/areas/like', [AreaController::class, 'like'])->name('areas.like');    
     
     
     

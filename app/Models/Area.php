@@ -43,10 +43,7 @@ class Area extends Model
     
     public function getFirstImages()
     {
-
         return $this->images->first();    
-        
-        
     }
     
     
@@ -55,6 +52,11 @@ class Area extends Model
         return $this->hasOne(Location::class);
     }
     
+    
+    public function isLikedBy($user): bool 
+    {
+        return Like::where('user_id', $user->id)->where('area_id', $this->id)->first() !==null;
+    }
     
   
 }
