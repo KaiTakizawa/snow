@@ -60,3 +60,11 @@
   word-wrap: break-word; /* 長いテキストを適切に折り返す */
 }
 
+.liked {
+    color: rgb(225, 58, 86);
+}
+
+.like-toggle {
+    cursor: pointer;
+}
+

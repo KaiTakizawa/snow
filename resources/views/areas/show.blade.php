@@ -24,7 +24,7 @@
                     <h1 class='name'>
                         {{$area->name}}
                     </h1>
-                    <div class="area-info">
+                   <div class="area-info">
                         <div class="area-image">
                             <img src="{{ $area->snowmap_url }}" alt="画像が読み込めません." />
                         </div>

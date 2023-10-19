@@ -3,16 +3,22 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Area;
 use App\Models\Location;
 use Cloudinary;
 use App\Models\Image;
+use App\Models\Like;
+
 
 class AreaController extends Controller
 {
-    public function area(Area $area)
+    public function area(Request $request, Area $area)
     {
-        return view('areas/index')->with(['areas' => $area->get()]);
+        $user = auth()->user();
+        $areas = Area::withCount('likes')->orderByDesc('updated_at')->get();
+        return view('areas.index', ['areas' => $areas,]);
+        // return view('areas.index')->with(['areas' => $area->get()]);
     }
     
     public function create()
@@ -22,8 +28,6 @@ class AreaController extends Controller
     
     public function store(Request $request, Area $area)
     {  
-    
-    
         $input = $request['area'];
         //cloudinaryへ画像を送信し、画像のURLを$image_urlに代入している
         $image_url = Cloudinary::upload($request->file('image')->getRealPath())->getSecurePath();
@@ -73,8 +77,51 @@ class AreaController extends Controller
                 ->orWhere('access', 'LIKE', "%{$keyword}%");
         }
         $results = $areas->get();
-        return view('areas.search')->with(['results' => $results]);
+        return view('areas.index')->with(['areas' => $results]);
     }
+    
+    // public function like(Request $request, Area $area)
+    // {
+    //     $like=New Like();
+    //     $like->area_id=$area->id;
+    //     $like->user_id=Auth::user()->id;
+    //     $like->save();
+    //     return back();
+    // }
+    
+    //  public function unlike(Area $area, Request $request)
+    //  {
+    //     $user=Auth::user()->id;
+    //     $like=Like::where('area_id', $area->id)->where('user_id', $user)->first();
+    //     $like->delete();
+    //     return back();
+    // }
+    
+    public function like(Request $request)
+    {
+        $user_id = Auth::user()->id; // ログインしているユーザーのidを取得
+        $area_id = $request->area_id; // 投稿のidを取得
+    
+        // すでにいいねがされているか判定するためにlikesテーブルから1件取得
+        $already_liked = Like::where('user_id', $user_id)->where('area_id', $area_id)->first(); 
+    
+        if (!$already_liked) { 
+            $like = new Like; // Likeクラスのインスタンスを作成
+            $like->area_id = $area_id;
+            $like->user_id = $user_id;
+            $like->save();
+        } else {
+            // 既にいいねしてたらdelete 
+            Like::where('area_id', $area_id)->where('user_id', $user_id)->delete();
+        }
+        // 投稿のいいね数を取得
+        $area_likes_count = Area::withCount('likes')->findOrFail($area_id)->likes_count;
+        $param = [
+            'area_likes_count' => $area_likes_count,
+        ];
+        return response()->json($param); // JSONデータをjQueryに返す
+    }
+    
     
     
 }
