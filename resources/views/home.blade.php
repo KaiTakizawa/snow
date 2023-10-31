@@ -86,7 +86,6 @@
       </div>
 	</section>	
     
-    
     <section id="contact">
 		<h2 class="contact">Contact</h2>
 		<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSehKlfSCBQUU1QwXcxZm4Guu-H8VD2Ei7ozmehyBY1NXa1DqQ/viewform?embedded=true" width="100%" height="716" frameborder="0" marginheight="0" marginwidth="0">読み込んでいます…</iframe>
