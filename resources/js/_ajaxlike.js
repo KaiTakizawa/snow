@@ -1,6 +1,5 @@
 /* global $ */
 $(function () {
-  console.log('hello!');
     let like = $('.like-toggle'); //like-toggleのついたiタグを取得し代入。
     let likeAreaId; //変数を宣言
     like.on('click', function () { //onはイベントハンドラー

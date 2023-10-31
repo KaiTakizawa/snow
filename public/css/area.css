@@ -1,70 +1,118 @@
 @charset "UTF-8";
+body{
+      background-color: #F0F8FF;
+}
+.all{
+    background-color: #F0F8FF;
+}
 
-/*検索欄*/
 .header-content {
-    display: flex;
-    align-items: center;
+    display: flex; /* 要素を横並びに配置 */
+    align-items: center; /* 垂直方向の中央揃え */
+    background-color:#F0F8FF;
+    border-bottom: 1px solid #aaaaaa;
+    margin-bottom: 40px;
+    padding-bottom: 3px;
+    
 }
 
 .header-title {
-    flex: 1;
-    text-align: left;
+    font-size: 20px;
+    margin-left:100px;
+    flex: 1; /* タイトルを横幅いっぱいに拡大 */
+}
+.header-title2 {
+    font-size: 20px;
+    padding:15px 100px;
+    border-bottom: 1px solid #aaaaaa;
+    margin-bottom: 40px;
 }
 
 .search-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: flex; /* 検索フォームの要素を横並びに配置 */
+    align-items: center; /* 垂直方向の中央揃え */
+    margin: 10px 60px;
 }
 
 .search-input {
-    width: 70%;
-    padding: 10px;
-    display: inline-block;
-    text-align: center; 
+    /* ここに検索欄（input要素）のスタイルを追加 */
+    padding: 5px;
+    border: 1px solid #555555;
+    border-radius: 4px;
+    margin:0px 10px;
 }
 
 .search-button {
-    width: 25%;
-    padding: 10px;
-    display: inline-block;
-    margin-left: 5px;
+    /* ここに検索ボタン（input[type="submit"]要素）のスタイルを追加 */
+    padding: 5px 10px;
+    background-color: #555555;
+    color: #696969;
+    border: 1px solid #555555;
+    border-radius: 4px;
+    cursor: pointer;
 }
 
+/* 検索ボタンにホバーエフェクトを追加 */
+.search-button:hover {
+    background-color: #0099FF;
+}
+
+
+
+.areas {
+    background-color: #F0F8FF;
+}
+
+.area-box {
+    border: 1px solid #F5F5F5;
+    padding: 10px 40px;
+    margin: auto;
+    margin-bottom: 40px;
+    width: 70%;
+    position: relative; /* 相対位置指定 */
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.2);
+    
+}
+
+.name {
+    font-size: 20px;
+    margin-bottom: 10px;
+    text-decoration: underline;
+    color: #1E90FF;
+}
 
 .wrapper {
-  display: flex;
-  align-items: center;
-  gap: 20px; /* 画像とテキスト間のスペース（任意の値を指定） */
-  border: 2px solid black; /* グリッドを太線で囲む */
-  padding: 10px; /* グリッドの内部の余白を追加（任意の値を指定） */
+    display: flex;
+    align-items: center;
+    position: relative; /* 相対位置指定 */
 }
 
-.grid-item {
-  display: flex; /* 画像とテキストを横並びに配置 */
-  align-items: center;
+.area-image {
+    flex: 2;
+    max-width: 200px;
+    height: 150px;
+    margin-right: 10px;
 }
 
-.grid-item img {
-  flex: 1; /* 画像の幅がテキストの3倍になる */
-  max-width: 25%; /* 画像の最大幅を制限 */
-  object-fit: cover; /* 画像を親要素に合わせて拡大/縮小 */
+.area-text {
+    flex: 1;
 }
 
-.text-content {
-  flex: 3; /* テキストの幅が画像の1/3になる */
-}
-
-.text-content p {
-  margin: 0; /* デフォルトのマージンを削除 */
-  word-wrap: break-word; /* 長いテキストを適切に折り返す */
+.detail, .address, .access {
+    margin: 5px 0 0 60px;
+    font-size: 17px;
 }
 
 .liked {
     color: rgb(225, 58, 86);
 }
 
-.like-toggle {
+.like-button {
     cursor: pointer;
+    position: absolute;
+    bottom: 5px; /* 下側からの位置調整 */
+    right: 5px; /* 右側からの位置調整 */
 }
 

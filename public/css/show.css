@@ -1,29 +1,94 @@
 @charset "UTF-8";
+
+
+body {
+    background-color: #F0F8FF;
+}
+.all{
+    background-color: #F0F8FF;
+}
+
+.header{
+    font-size: 20px;
+    padding:15px 0px 15px 80px;
+    border-bottom: 1px solid #aaaaaa;
+    background-color: #F0F8FF;
+}
+
+.subheader{
+    text-align: center;
+    margin:30px auto;
+    font-size: 50px;
+    font-family:"Oswald";
+    font-weight:bold;
+    color: #000066
+    
+    
+    
+    
+}
+
 .name {
-    font-size: 24px; 
+    font-size: 30px; 
+    margin: 0px 0px 20px 40px;
 }
 
 /*ゲレンデマップと詳細説明*/
 .area-info {
+    height: 400px;
     display: flex;
     align-items: center; 
+    background-color: #000066;
+    margin-bottom: 100px;
 }
 
 .area-image {
-    flex: 1; /* 左側の画像領域を拡大 */
+    width: 500px;
+    height: 400px;
+    flex: 3; /* 左側の画像領域を拡大 */
 }
+
+.gerende-map {
+    width: 100%;
+    height: 400px;
+    vertical-align: middle;
+    
+    
+}
+
+.area-text{
+    color: white;
+    font-size:20px;
+    text-align: center;
+}
+
+
 
 .area-text {
     flex: 3; /* 右側のテキスト領域を拡大 */
 }
 
-/*画像五枚*/
+
 .images {
+    background-color: #000066;
     display: flex; 
+    flex-wrap: nowrap; 
+    max-width: 100%;
+    height: 400px;
+    margin-bottom: 100px;
+    
 }
 
+
 .image {
-    margin-right: 10px;
+    width: 25%;
+}
+
+.pictures{
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    /*border: 1px solid #111;*/
 }
 
 
@@ -33,17 +98,37 @@
 
 /*レビュー機能*/
 /* レビューフォーム */
+.background{
+     background-color: #000066;
+}
+
 .reviews {
-    background-color: #f5f5f5;
+    width: 100%;
+    background-color: #ccffff;
     padding: 20px;
     border: 1px solid #ddd;
-    border-radius: 5px;
-    margin-top: 20px;
+    border-radius: 40px;
+    margin: 20px auto 100px;
+    
+    
+    
+}
+.review{
+    font-size: 25px;
+    margin: 10px 0 0 50px;
+    font-weight: bold
+}
+
+.snow-ev, .biginner-ev, .all-ev {
+    font-weight: bold;
+    text-align: center;
+    justify-content:center;
 }
 
 /* フォームのラベルスタイル */
 .label {
     font-weight: bold;
+    
 }
 
 /* 評価の選択ボタンスタイル */
@@ -51,46 +136,82 @@
     display: flex;
     gap: 10px;
     align-items: center;
+    justify-content:center;
+    margin-bottom: 20px;
 }
 
 /* 評価ラジオボタンのスタイル */
+/* ラジオボタンを非表示に */
 .ratebutton input[type="radio"] {
     display: none;
 }
 
+/* 星マークのスタイル */
 .ratebutton label {
     cursor: pointer;
-}
-
-.ratebutton label::before {
-    content: "\2605"; /* 星記号 */
     font-size: 24px;
 }
 
-.ratebutton label:hover::before,
-.ratebutton input[type="radio"]:checked + label::before {
-    color: #f1c40f; /* 星記号の色を変更 */
+/* 選択された星マークの色 */
+.ratebutton input[type="radio"]:checked + label {
+    color: #f1c40f;
 }
+
+
+
+
 
 /* コメントテキストエリアのスタイル */
 textarea {
-    width: 100%;
+    width: 50%;
     padding: 10px;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 100px;
+    margin-bottom: 20px ;
 }
+
 
 /* 投稿ボタンのスタイル */
 .post {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
+    background-color: #0099FF !important;
+    color: white;
+    border: 1px solid #555555;
     padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
 }
 
-/* 投稿ボタンホバースタイル */
-.post:hover {
-    background-color: #0056b3;
+
+
+
+.maparea {
+    display: flex; /* 要素を横並びに配置 */
+    background-color: black; /* 背景色を黒に設定 */
+    color: white; /* テキストを白に設定 */
+    padding: 10px; /* 適切な余白を追加 */
+}
+
+#map {
+    flex: 3; /* 地図を横幅いっぱいに広げる */
+    height: 400px;
+    margin:20px 0 20px 20px; /* 地図と名前・住所の間に間隔を設ける */
+    
+}
+
+.map-text{
+    flex: 2;
+    margin: auto;
+}
+
+.map-name{
+    
+    text-align: left;
+    justify-content:center;
+    margin: none;
+}
+.map-address {
+     text-align: center;
+     justify-content:center;
+     
+     
 }
