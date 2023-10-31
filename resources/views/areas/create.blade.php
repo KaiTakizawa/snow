@@ -14,7 +14,7 @@
             　Area
         </x-slot>
         <body>
-            <h1>Area Name</h1>
+            <h1>Area Register</h1>
             <form action="/areas" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="name">
@@ -40,6 +40,14 @@
                 スキー場写真
                 <div class="images">
                     <input type="file" name="images[]" multiple/>
+                </div>
+                 緯度
+                <div class="latitude">
+                    <input type="text" name="location[latitude]">
+                </div>
+                 経度
+                <div class="longitude">
+                    <input type="text" name="location[longitude]">
                 </div>
                 
                 <input type="submit" value="保存"/>

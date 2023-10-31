@@ -18,8 +18,6 @@ return new class extends Migration
             $table->foreignId('area_id')->constrained();
             $table->double('latitude', 10, 6); // 10は合計桁数、6は小数部桁数
             $table->double('longitude', 10, 6);
-            $table->string('area_name', 30); 
-            $table->string('area_address', 100);
             $table->timestamps();
         });
     }

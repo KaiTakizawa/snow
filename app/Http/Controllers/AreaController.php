@@ -16,7 +16,7 @@ class AreaController extends Controller
     public function area(Request $request, Area $area)
     {
         $user = auth()->user();
-        $areas = Area::withCount('likes')->orderByDesc('updated_at')->get();
+        $areas = $area->withCount('likes')->orderByDesc('updated_at')->get();
         return view('areas.index', ['areas' => $areas,]);
         // return view('areas.index')->with(['areas' => $area->get()]);
     }
@@ -26,7 +26,7 @@ class AreaController extends Controller
         return view('areas.create');
     }
     
-    public function store(Request $request, Area $area)
+    public function store(Request $request, Area $area, Location $location)
     {  
         $input = $request['area'];
         //cloudinaryへ画像を送信し、画像のURLを$image_urlに代入している
@@ -44,6 +44,10 @@ class AreaController extends Controller
             $input['area_id'] = $area->id;
             $image->fill($input)->save();
         }
+        
+         $input = $request['location'];
+         $input['area_id'] = $area->id;
+         $location->fill($input)->save();
         
         return redirect('/areas/' . $area->id);
     }
@@ -79,23 +83,6 @@ class AreaController extends Controller
         $results = $areas->get();
         return view('areas.index')->with(['areas' => $results]);
     }
-    
-    // public function like(Request $request, Area $area)
-    // {
-    //     $like=New Like();
-    //     $like->area_id=$area->id;
-    //     $like->user_id=Auth::user()->id;
-    //     $like->save();
-    //     return back();
-    // }
-    
-    //  public function unlike(Area $area, Request $request)
-    //  {
-    //     $user=Auth::user()->id;
-    //     $like=Like::where('area_id', $area->id)->where('user_id', $user)->first();
-    //     $like->delete();
-    //     return back();
-    // }
     
     public function like(Request $request)
     {

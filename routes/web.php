@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AreaController;
 use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\LikeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,9 +18,8 @@ use App\Http\Controllers\ReviewController;
 */
 
 
-Route::get('/dashboard', function () {
-    return view('home');
-})->name('home');
+Route::get('/dashboard', function () {return view('home');})->name('home');
+
 
 
 
@@ -33,18 +33,16 @@ Route::middleware('auth')->group(function () {
     
     Route::get('/', [AreaController::class, 'area'])->name('area');
     Route::post('/areas/search', [AreaController::class, 'search']);
-    Route::get('/reviews', [ReviewController::class, 'review'])->name('review');
-    
     Route::get('/areas/create', [AreaController::class, 'create'])->name('areas.create');
     Route::post('/areas', [AreaController::class, 'store'])->name('areas.store');
     Route::get('/areas/{area}', [AreaController::class, 'show']);
     Route::delete('/areas/{area}', [AreaController::class,'delete']);
     
+    Route::get('/reviews', [ReviewController::class, 'review'])->name('review');
     Route::post('/reviews/{area}', [ReviewController::class, 'storeReview']);
     
-    // Route::get('/like/{area}', [AreaController::class, 'like'])->name('like');
-    // Route::get('/unlike/{area}', [AreaController::class, 'unlike'])->name('unlike');
-
+   
+    Route::get('/likes', [LikeController::class, 'likes'])->name('likes');
     Route::post('/areas/like', [AreaController::class, 'like'])->name('areas.like');    
     
     
