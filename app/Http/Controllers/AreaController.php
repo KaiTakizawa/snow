@@ -15,7 +15,7 @@ class AreaController extends Controller
 {
     public function area(Request $request, Area $area)
     {
-        $user = auth()->user();
+        // $user = auth()->user();
         $areas = $area->withCount('likes')->orderByDesc('updated_at')->get();
         return view('areas.index', ['areas' => $areas,]);
         // return view('areas.index')->with(['areas' => $area->get()]);
