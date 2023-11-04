@@ -15,23 +15,23 @@
     	<!-- メインビジュアル -->
 	<div class="main-visual">
 		<div class="main">
-			<h1>snow site</h1>
+			<h1 class="header">snow site</h1>
 		</div>
 	</div>
 	
 	
 	<!-- Map -->
 	<section class="map" id="map">
-		<h2>Map</h2>
+		<h2 class="header2">Map</h2>
 		<div class="image-box">
-			<img src="{{ asset('/img/map.jpg') }}">
+			<img src="{{ asset('/img/map.jpg') }}" class="img">
 		</div>
 	</section>
 
 		
 	<!-- Areas -->
 	<section id="areas">
-		<h2 class="areas-header">Areas</h2>
+		<h2 class="header2">Areas</h2>
 		<div class="rec">おすすめゲレンデ</div>
 		<div class="area-list">
           <div class="area-item">
@@ -87,7 +87,7 @@
 	</section>	
     
     <section id="contact">
-		<h2 class="contact">Contact</h2>
+		<h2 class="header2">Contact</h2>
 		<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSehKlfSCBQUU1QwXcxZm4Guu-H8VD2Ei7ozmehyBY1NXa1DqQ/viewform?embedded=true" width="100%" height="716" frameborder="0" marginheight="0" marginwidth="0">読み込んでいます…</iframe>
 	</section>
         
