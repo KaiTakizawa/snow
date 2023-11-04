@@ -20,6 +20,7 @@ a,a:visited {
     border: 2px solid #ccc; /* ボーダーを追加 (かわいらしさを演出) */
     border-radius: 10px; /* 角丸にすることでかわいらしさを強調 (お好みに合わせて調整) */
     background-color: #f9f9f9;
+    margin:0 auto;
 }
 
 li {
