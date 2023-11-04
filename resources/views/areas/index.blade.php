@@ -66,7 +66,7 @@
 
 
             
-            <!--<a href='/areas/create'>create</a>-->
+            <a href='/areas/create'>create</a>
             
             <script>
                 function deleteArea(id) {
