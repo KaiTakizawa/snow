@@ -18,7 +18,7 @@ use App\Http\Controllers\LikeController;
 */
 
 
-Route::get('/dashboard', function () {return view('home');})->name('home');
+Route::get('/', function () {return view('home');})->name('home');
 
 
 
@@ -31,7 +31,8 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     
-    Route::get('/', [AreaController::class, 'area'])->name('area');
+    Route::get('/', function () {return view('home');})->name('home');
+    Route::get('/areas', [AreaController::class, 'area'])->name('area');
     Route::post('/areas/search', [AreaController::class, 'search']);
     Route::get('/areas/create', [AreaController::class, 'create'])->name('areas.create');
     Route::post('/areas', [AreaController::class, 'store'])->name('areas.store');
